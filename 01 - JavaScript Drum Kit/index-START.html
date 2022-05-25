@@ -59,22 +59,15 @@
 
 <script>
 
-    const keyPress = document.addEventListener('keypress', (event) => {
-          const notes = [65,83,68,70,71,72,74,75,76]
+    const keyPress = window.addEventListener('keypress', (event) => {
           const keyCode = event.key.toUpperCase().charCodeAt()
-          
-          if(notes.includes(keyCode)) {
-            const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
-            
-              if(audio.paused) {
-                audio.play()
-              } else {
-                audio.currentTime = 0;
-              }
+          const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
+          if(audio) {
+            audio.currentTime = 0;
+            audio.play()
           } else {
             alert("Not a valid key")
           }
-          
    })
 </script>
 
