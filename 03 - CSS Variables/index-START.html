@@ -45,7 +45,7 @@
     }
      img {
         padding: var(--spacing);
-        background: var(--background-color);
+        background: var(--base);
         filter: blur(var(--blur));
         
      } 
@@ -61,36 +61,33 @@
 
   <script>
 
-    const spacing = document.getElementById('spacing')
-    const blur = document.getElementById('blur')
-    const base = document.getElementById('base')
-    const root = document.querySelector(':root')
+    // const spacing = document.getElementById('spacing')
+    // const blur = document.getElementById('blur')
+    // const base = document.getElementById('base')
+    // const root = document.querySelector(':root')
   
 
-    spacing.addEventListener('input', (event)=> {
-        const { value } = event.target
-          root.style.setProperty('--spacing', `${value}px`)
-      })
+    // spacing.addEventListener('input', (event)=> {
+    //     const { value } = event.target
+    //       root.style.setProperty('--spacing', `${value}px`)
+    //   })
 
-      blur.addEventListener('input', (event)=> {
-            const { value } = event.target
-            root.style.setProperty('--blur', ` ${value}px`)
-      })
+    //   blur.addEventListener('input', (event)=> {
+    //         const { value } = event.target
+    //         root.style.setProperty('--blur', ` ${value}px`)
+    //   })
     
-      base.addEventListener('input', (event)=> {
-        const { value } = event.target
-              root.style.setProperty('--base', `${value}`)
-      })
+    //   base.addEventListener('input', (event)=> {
+    //     const { value } = event.target
+    //           root.style.setProperty('--base', `${value}`)
+    //   })
 
-    // const root = document.querySelector(':root')
-    //  const inputs = document.querySelectorAll('.controls input')
-
-    //       const inputChange = inputs.forEach(inp => { 
-    //         inp.addEventListener('input', (event) => {
-    //          root.style.setProperty(`--${inp.name}`, `${event.target.value}px` )
-    //         })   
-          
-    //       })
+    
+     const inputs = document.querySelectorAll('.controls input')
+      function handleUpdate () {
+           document.documentElement.style.setProperty(`--${this.name}`,`${this.type === 'color' ? this.value : this.value + 'px'}`)
+      }
+      inputs.forEach(input => input.addEventListener('input', handleUpdate))
    
     
     
