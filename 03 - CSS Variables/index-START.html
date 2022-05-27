@@ -9,7 +9,7 @@
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="0" max="200" value="0" data-sizing="px">
+    <input id="spacing" type="range" name="spacing" min="0" max="200" value="5" data-sizing="px">
 
     <label for="blur">Blur:</label>
     <input id="blur" type="range" name="blur" min="0" max="25" value="5" data-sizing="px">
@@ -26,8 +26,8 @@
       misc styles, nothing to do with CSS variables
     */
       :root {
-          --spacing: 100px;
-          --background-color: #ffc600;
+          --spacing: 5px;
+          --base: #ffc600;
           --blur: 5px;
       }
 
@@ -65,8 +65,9 @@
     const blur = document.getElementById('blur')
     const base = document.getElementById('base')
     const root = document.querySelector(':root')
-   
-      spacing.addEventListener('input', (event)=> {
+  
+
+    spacing.addEventListener('input', (event)=> {
         const { value } = event.target
           root.style.setProperty('--spacing', `${value}px`)
       })
@@ -78,9 +79,19 @@
     
       base.addEventListener('input', (event)=> {
         const { value } = event.target
-              root.style.setProperty('--background-color', `${value}`)
-
+              root.style.setProperty('--base', `${value}`)
       })
+
+    // const root = document.querySelector(':root')
+    //  const inputs = document.querySelectorAll('.controls input')
+
+    //       const inputChange = inputs.forEach(inp => { 
+    //         inp.addEventListener('input', (event) => {
+    //          root.style.setProperty(`--${inp.name}`, `${event.target.value}px` )
+    //         })   
+          
+    //       })
+   
     
     
   </script>
