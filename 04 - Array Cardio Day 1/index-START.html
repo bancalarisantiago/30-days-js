@@ -81,11 +81,9 @@
       // Array.prototype.map()
       // 2. Give us an array of the inventors first and last names
 
-      const inventorsFullName = inventors.map((inventor) => ({
-        first: inventor.first,
-        last: inventor.last,
-      }));
-
+      const inventorsFullName = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
+      
+        
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
 
@@ -94,12 +92,12 @@
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
       const yearsCount = inventors.reduce((acc, ele) => {
-        return (acc += ele.passed - ele.year);
+        return acc + ( ele.passed - ele.year);
       }, 0);
 
       // 5. Sort the inventors by years lived
       const sortByYearsLived = inventors.sort(
-        (a, b) => a.passed - a.year - (b.passed - b.year)
+        (a, b) => (a.passed - a.year) - (b.passed - b.year)
       );
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -193,7 +191,7 @@
            return acc
 
       },{})
-        console.log(countIntances)
+        
 
 
     </script>
