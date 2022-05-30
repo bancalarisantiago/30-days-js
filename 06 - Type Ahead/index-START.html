@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
@@ -22,7 +21,36 @@ fetch(endpoint)
   .then(blob => blob.json())
   .then(data => cities.push(...data))
   
+  function findMatches(wordToMatch,cities) {
+      const regex = new RegExp(wordToMatch, 'gi')
+    return cities.filter(place => {
 
+        return place.city.match(regex) || place.state.match(regex)
+    })
+  }
+
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  function displayMatches() {
+      //console.log(this.value);
+    const resultInput = findMatches(this.value.trim(),cities)
+     const html = resultInput.map(place => {
+          return`
+          <li>
+              <span class='name'>${place.city}, ${place.state}</span>
+              <span class='population'>${place.population}</span>
+          </li>
+            `
+     }).join('')
+
+          
+        suggestions.innerHTML = html;
+        
+  }
+  
+
+  searchInput.addEventListener('input', displayMatches)
 </script>
 </body>
 </html>
