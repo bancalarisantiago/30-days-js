@@ -16,31 +16,50 @@
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
-
+    const p = document.querySelector('p');
     // Regular
-
+      console.log("I am a regular log")
     // Interpolated
-
+      console.log("Yes I am a %s string!", '❤')
     // Styled
-
+      console.log("%c Yes I am a %s string!", 'font-size: 20px; background:yellow; text-shadow: 5px 5px 0 green')
     // warning!
-
+      console.warn("OHMYDGOD")
     // Error :|
-
+      console.error("ERRORRRRR DUDE")
     // Info
-
+      console.info("Some info that its necessary")
     // Testing
-
+      console.assert(3 === 5, "NOT TRUE / FALSE ERROR")
     // clearing
-
+      console.clear();
     // Viewing DOM Elements
-
+      console.log(p)  
+      console.dir(p)
     // Grouping together
 
-    // counting
+     console.clear();
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
+    // counting
+      console.count("Ea")
+      console.count("Ea")
+      console.count("Ea")
+      console.count("Ea")
+      console.count("Ea")
     // timing
 
+    const test = ()=>{ setTimeout(()=> console.log("Time Out 1000"),1000)}
+      console.time(test())
+      console.timeEnd()
+
+      console.table(dogs)
   </script>
 </body>
 </html>
